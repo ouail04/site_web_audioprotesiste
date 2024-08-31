@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pasde.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="pasde.jpg" type="image/x-icon">
+    <style>
+        .picture1 {  height: auto ; width: 20cm; margin-top: -1cm ;  }
+        .logo { text-align:center ; }
+        nav { background-color: #cbcbcb; padding: 10px; }
+        nav ul { list-style: none; margin: 0; padding: 0; }
+        nav ul li {display: inline-block; }
+        nav ul li a { color: #000000; text-decoration: none; padding: 10px 20px; }
+        .les_reseaux { margin-top: 1cm; align-items: center; display: flex; margin-right: 20px; text-align: right;  display: flex; justify-content: flex-end;}
+        .reseau { width: 30px; height: auto; margin-right: 10px; }
+        nav ul li a:hover 
+        {
+            text-decoration: underline;
+        }
+        header nav ul li a.active {
+    text-decoration: underline; /* Ajouter une soulignement pour la page active */
+}
+
+        /* les style de la liste de langue */
+           
+        .language-selector { position: relative; display: inline-block; cursor: pointer; }
+        .selected-language { padding: 10px; background-color: #f0f0f0; border: 1px solid #ccc; border-radius: 5px; display: flex; align-items: center; }
+        .arrow-down { width: 0;  height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #333; margin-left: 5px; } 
+        .languages-list {  display: none ; position: absolute; top: 100%; right: 0; background-color: #fff; border: 1px solid #ccc; border-top: none; border-radius: 0 0 5px 5px; width: 150px; }
+        .language { padding: 10px; cursor: pointer; }
+        .language:hover { background-color: rgb(198, 198, 198); }
+        .separator { border-top: 1px solid #ccc; margin: 5px 0; }
+        .selected-language i { margin-left: 0.5cm; }
+        /*nav ul { display: flex; justify-content: flex-end; align-items: center;  Ajoutez une marge à droite pour l'espacement  }*/
+        /*nav ul li:last-child { margin-left: auto; Utilisez une marge automatique pour pousser le dernier li à droite  }*/
+        
+    </style>
+
+</head>
+<body>
+         <div class="logo">
+            <div class="les_reseaux">
+                <span><a href="mailto: neuro.audition0@gmail.com"><img src="email.png" class="reseau" ></a></span>
+                <span><a href="https://api.whatsapp.com/send?phone=212661390005"><img src="whatsapp.png" class="reseau"></a></span>
+                <span><a href="https://web.facebook.com/profile.php?id=100093671736569&_rdc=1&_rdr"><img src="facebook.png" class="reseau"></a></span>
+                <span><a href="https://www.instagram.com/neuroaudition/"><img src="instagram.png" class="reseau"></a></span>
+            </div>
+            <span><img src="logoNA.png" class="picture1"></span>
+         </div>   
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.php" class="nav-link">Accueille</a></li>
+                <li><a href="service.php" class="nav-link">Services</a></li>
+                <li><a href="rendez-vous.php" class="nav-link">Rendez-vous</a></li>
+                <li><a href="login.php" class="nav-link">Administration</a></li>
+                 <!--<li>
+                    <div class="language-selector">
+                        <div class="selected-language" onclick="afficheliste()">العربية <i class="fas fa-chevron-down"></i></div>
+                        <div class="languages-list">
+                            <div class="language">العربية</div>
+                            <div class="separator"></div>
+                            <div class="language">Français</div>
+                            <div class="separator"></div>
+                            <div class="language">Espanole</div>
+                            Ajoutez plus d'options de langues au besoin 
+                        </div>
+                    </div>
+                </li>-->
+            </ul>
+        </nav>
+    </header>   
+    <script>
+        
+        function afficheliste()
+        {         
+            var selectedLanguage = document.querySelector('.languages-list');
+            const computedStyles = window.getComputedStyle(selectedLanguage);
+            const displayPropertyValue = computedStyles.getPropertyValue('display');
+            if (displayPropertyValue === 'block') {
+            selectedLanguage.style.display = 'none' ;
+            } else {
+            selectedLanguage.style.display = 'block' ;
+            } 
+        }
+    </script>
+   <script>
+    // Récupérez l'URL de la page actuelle
+const currentPageURL = window.location.href;
+
+// Sélectionnez tous les éléments <a> dans la liste
+const menuLinks = document.querySelectorAll('header nav ul li a');
+
+// Parcourez tous les liens
+menuLinks.forEach(link => {
+    // Comparez l'attribut href du lien avec l'URL de la page actuelle
+    if (link.href === currentPageURL) {
+        // Si le lien correspond à la page actuelle, ajoutez le style text-decoration: underline;
+        link.style.textDecoration = 'underline';
+    }
+});
+
+</script>
+    
+</body>
+</html>
